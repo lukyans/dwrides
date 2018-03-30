@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "DW Rides", root_path, class: "navbar-brand text-danger", style: "text-decoration: none" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ride</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Drive</a>
+      </li>
+    </ul>
+  </div>
+  <% if current_user %>
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "text-muted", style: "text-decoration: none" %>
+  <% else %>
+    <li class="nav-item nav-link align-rigt">
+      <%= link_to "Sign Up", new_user_registration_path, class: "text-muted", style: "text-decoration: none" %>
+    </li>
+    <li class="nav-item nav-link align-rigt">
+      <%= link_to "Log In", new_user_session_path, class: "text-muted", style: "text-decoration: none" %>
+    </li>
+  <% end %>
+</nav>
