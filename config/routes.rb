@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # resources :home, only: [:index]
   root to: "home#index"
 
-  resources :ride, only: [:index]
+  resources :rides#, only: [:index]
 end
