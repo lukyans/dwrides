@@ -1,6 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Drives", :type => :feature do
+  let(:user) { create(:user) }
   # when I visit drive page
   #   I can see a drive form
   scenario "Guest should be able to visit drive page" do
