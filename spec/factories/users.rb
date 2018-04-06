@@ -1,6 +1,9 @@
 FactoryBot.define do
   factory :user do
-    first_name "John"
-    last_name  "Doe"
+    email {FactoryBot.generate :email}
+    login {FactoryBot.generate :login}
+    password "abc"
+    first_name "Bob"
+    last_name "Bobson"
   end
 end
