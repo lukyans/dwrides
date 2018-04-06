@@ -11,13 +11,17 @@ RSpec.feature "Rides", :type => :feature do
     fill_in 'Last name', with: 'Doe'
     fill_in 'Airport', with: 'JFK'
     fill_in 'Flight Number', with: '123456'
-    choose('Arriving')
-    el = @session.find(:radio_button, 'gender_male')
-    # select('Option', :from => 'Select Box')
+    choose 'Arriving'
+    select 'Two', :from => 'select_spots'
+    fill_in 'Date', with: '04/05/2018'
+
     expect(page).to have_selector("input[value='John']")
     expect(page).to have_selector("input[value='Doe']")
     expect(page).to have_selector("input[value='JFK']")
     expect(page).to have_selector("input[value='123456']")
-    expect(page).to have_selector("input[value='Arriving']")
+    expect(page).to have_selector("input[value='04/05/2018']")
+
+    click_button "Submit"
+    expect(page).to have_content "Ride has been requested."
   end
 end
