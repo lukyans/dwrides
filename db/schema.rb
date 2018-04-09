@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180408225432) do
 
   create_table "drives", force: :cascade do |t|
     t.string "airport"
-    t.integer "spots"
+    t.integer "spot"
     t.datetime "date"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
