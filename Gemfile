@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara'
   gem "factory_bot_rails", "~> 4.0"
   gem 'pry-rails'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
