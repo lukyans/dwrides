@@ -42,13 +42,13 @@
           </select>
         </div>
       </div>
+
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationCustom03">Date</label>
-          <input type="text" data-provide='datepicker' class="form-control" id="validationCustom03" placeholder="Date" method="post" required>
-          <div class="invalid-feedback">
-            Please provide a date.
-          </div>
+          <!-- <label >Date and time</label> -->
+          <label for="validationCustom03">Date and time</label>
+          <input class="form-control" type="datetime-local" id="validationCustom03" name="ride[date]" required>
+          <!-- <input type="text" data-provide='datepicker'   placeholder="Date"  value="" > -->
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit form</button>
