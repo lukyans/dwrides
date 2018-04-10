@@ -1,15 +1,19 @@
 class RidesController < ApplicationController
-  def index
+  skip_before_action :verify_authenticity_token
+
+  def new
     @ride = Ride.new
   end
 
   def create
     @ride = Ride.new(ride_params)
-    @ride.save
-    # if ride.save
-    #   flash[:success] = "Welcome to the Sample App!"
-    #   redirect_to root_path
-    # else
+    @ride.user = current_user
+    if @ride.save
+      flash[:success] = "Ride has been requested."
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
 private
