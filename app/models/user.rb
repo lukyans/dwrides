@@ -7,4 +7,7 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable
+
+  has_many :rides
+  has_many :drives
 end

@@ -1,11 +1,12 @@
+<form role="form" action="/drives" accept-charset="UTF-8" method="post">
 <div class="container mt-3 mb-3">
   <div class="row justify-content-center">
     <div class="col-7">
     <form class="needs-validation" novalidate>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationCustom03">Airport</label>
-          <input type="text" class="form-control" id="validationCustom03" placeholder="Airport" required>
+          <label for="validationCustom01">Airport</label>
+          <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="drive[airport]" required>
           <div class="invalid-feedback">
             Please provide a valid airport.
           </div>
@@ -13,7 +14,7 @@
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <select class="custom-select" id="select_spots">
+        <select class="custom-select" id="customSelectValidation" for="customSelectValidation" name="drive[spot]" required>
             <option selected>Number of spots</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -24,11 +25,8 @@
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationCustom05">Date</label>
-          <input type="text" data-provide='datepicker' class="form-control" id="validationCustom05" placeholder="Date" required>
-          <div class="invalid-feedback">
-            Please provide a date.
-          </div>
+          <label for="validationCustom02">Date and time</label>
+          <input class="form-control" type="datetime-local" id="validationCustom02" name="drive[date]" required>
         </div>
       </div>
       <button class="btn btn-primary" type="submit">Submit form</button>
@@ -36,23 +34,4 @@
   </div>
 </div>
 
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
+<%= render partial: "/drives/form_validation", :formats => [:js] %>

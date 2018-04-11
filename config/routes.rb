@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # resources :home, only: [:index]
   root to: "home#index"
 
-  resources :rides#, only: [:index]
-  resources :drives, only: [:index]
+  resources :rides, only: [:index, :create]
+  resources :drives, only: [:index, :create]
 end
