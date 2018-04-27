@@ -1,5 +1,10 @@
 class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
+
+  def index
+    @rides = Ride.all
+  end
 
   def new
     @ride = Ride.new
