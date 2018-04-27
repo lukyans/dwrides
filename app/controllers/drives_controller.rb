@@ -1,5 +1,10 @@
 class DrivesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
+
+  def index
+    @drives = Drive.all
+  end
 
   def new
     @drive = Drive.new
