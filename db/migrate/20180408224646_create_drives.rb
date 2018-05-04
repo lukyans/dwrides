@@ -3,7 +3,8 @@ class CreateDrives < ActiveRecord::Migration[5.1]
     create_table :drives do |t|
       t.string :airport
       t.integer :spot
-      t.datetime :date
+      t.date :date
+      t.time :time
     end
   end
 end

@@ -35,6 +35,8 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap-datepicker-rails'
+gem 'faraday', '~> 0.15.0'
+gem 'cloudinary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +46,8 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.0"
   gem 'pry-rails'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do

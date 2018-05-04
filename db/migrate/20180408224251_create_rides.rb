@@ -5,7 +5,8 @@ class CreateRides < ActiveRecord::Migration[5.1]
       t.integer :flight_number
       t.string :traveling_status
       t.integer :spot
-      t.datetime :date
+      t.date :date
+      t.time :time
     end
   end
 end
