@@ -1,0 +1,46 @@
+<%= render partial: "/rides/nav" %>
+
+<div class="container mt-4">
+  <div class="h3 text-secondary mb-1">Available Rides</div>
+    <% if @drives.nil? %>
+      <div class="text-dark h5"> You don't have available rides</p>
+    <% end %>
+    <div class="row">
+      <% @rides.each do |ride| %>
+        <% @drives.each do |drive| %>
+        <% if Date.parse(ride.date.to_s) == Date.parse(drive.date.to_s) && ride.airport == drive.airport%>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="card bg-light mt-3" style="width: 20rem;">
+                <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-2">
+                          <i class="material-icons text-muted align-top mt-3">person</i>
+                          <i class="material-icons text-muted align-top mt-3">local_airport</i>
+                          <i class="material-icons text-muted align-top mt-3">group_add</i>
+                          <i class="material-icons text-muted align-top mt-3">schedule</i>
+                        </div>
+                        <div class="col-10">
+                          <p class="mt-3"><%= drive.user.first_name.capitalize %> <%= drive.user.last_name.capitalize %></p>
+                          <p class="mt-3"><%= drive.airport %></p>
+                          <p><%= drive.spot %></p>
+                          <%=drive.date.strftime('%A, %b %d, %Y')%>
+                          <div>
+                            <%=drive.time.strftime('%H:%M %p')%>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% else %>
+          <p class="text-muted">You have no available ride offers</p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

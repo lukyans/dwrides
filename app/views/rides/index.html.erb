@@ -1,1 +1,70 @@
-<%= render partial: "/rides/form" %>
+<% if !current_user.rides.any? %>
+  <%= render partial: "/rides/form" %>
+<% else %>
+  <%= render partial: "/rides/nav" %>
+  <div class="container mt-4">
+    <div class="h3 text-secondary mb-1">My Requested Rides</div>
+    <div class="row">
+      <% @rides.each do |ride| %>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="card bg-light mt-3" style="width: 20rem;">
+              <% if ride.airport == "JFK"%>
+              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
+              <% elsif ride.airport == "SFO" %>
+              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945601/tramonto-golden-gate.jpg" alt="Card image cap">
+              <% else %>
+              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1525048367/denver.jpg" alt="Card image cap">
+              <% end %>
+              <div class="card-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-2">
+                      <%if ride.matching_with_drives %>
+                          <div class="mb-2">
+                            <i class="material-icons text-danger">notifications_active</i>
+                          </div>
+                      <% end %>
+                      <i class="material-icons text-muted align-top">local_airport</i>
+                      <% if ride.flight_number? %>
+                        <i class="material-icons text-muted align-top mt-3">info</i>
+                      <%end%>
+                      <% if ride.traveling_status == "arriving" %>
+                        <i class="material-icons text-muted align-top mt-3">flight_takeoff</i>
+                      <% else %>
+                        <i class="material-icons text-muted align-top mt-3">flight_land</i>
+                      <% end %>
+                      <i class="material-icons text-muted align-top mt-3">group_add</i>
+                      <i class="material-icons text-muted align-top mt-3">schedule</i>
+                    </div>
+                    <div class="col-10">
+                      <%if ride.matching_with_drives %>
+                        <div class="mb-3">
+                          <%= link_to "Ride availalbe", available_rides_path, class: "text-danger", style: "text-decoration: none"%>
+                        </div>
+                      <% end %>
+                      <p class=""><%= ride.airport %></p>
+                      <% if ride.flight_number? %>
+                          <p class="mt-3">Flight# <%= ride.flight_number %></p>
+                      <%end%>
+                      <% if ride.traveling_status == "arriving" %>
+                        <p class="mt-3"><%= ride.traveling_status.capitalize %></p>
+                      <% else %>
+                        <p class="mt-3"><%= ride.traveling_status.capitalize %></p>
+                      <% end %>
+                      <p><%= ride.spot %></p>
+                      <%=ride.date.strftime('%A, %b %d, %Y')%>
+                      <div>
+                        <%=ride.time.strftime('%H:%M %p')%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
