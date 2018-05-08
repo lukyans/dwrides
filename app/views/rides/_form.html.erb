@@ -1,63 +1,64 @@
 <form role="form" action="/rides" accept-charset="UTF-8" method="post">
-<div class="container mt-3 mb-3">
-  <div class="row justify-content-center">
-     <div class="col-5">
-    <form class="needs-validation" novalidate>
-      <div class="form-row">
-        <div class="col-md-7 mb-3">
-          <label for="validationCustom01">Airport</label>
-          <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
-          <div class="invalid-feedback">
-            Please provide a valid airport.
+  <div class="container mt-3 mb-3">
+    <div class="row justify-content-center">
+       <div class="col-6">
+         <form class="needs-validation" novalidate>
+           <div class="form-row">
+             <div class="col-sm-11 col-md-8 col-lg-7 mb-3">
+              <label for="validationCustom01">Airport</label>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
+              <div class="invalid-feedback">
+                Please provide a valid airport.
+              </div>
+            </div>
+            <div class="col-sm-11 col-md-8 col-lg-4 mb-3">
+              <label for="validationCustom02">Flight Number</label>
+              <input type="text" class="form-control" id="validationCustom02" placeholder="Flight Number" name="ride[flight_number]">
+              <div class="invalid-feedback">
+                Please provide a valid Flight Number.
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom02">Flight Number</label>
-          <input type="text" class="form-control" id="validationCustom02" placeholder="Flight Number" name="ride[flight_number]">
-          <div class="invalid-feedback">
-            Please provide a valid Flight Number.
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customControlValidation1" class="custom-control-input" name="ride[traveling_status]" value="arriving" required>
+                <label class="custom-control-label" for="customControlValidation1">Arriving</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customControlValidation2"  class="custom-control-input" name="ride[traveling_status]" value="leaving" required>
+                <label class="custom-control-label" for="customControlValidation2">Leaving</label>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customControlValidation1" class="custom-control-input" name="ride[traveling_status]" value="arriving" required>
-            <label class="custom-control-label" for="customControlValidation1">Arriving</label>
+          <div class="form-row">
+            <div class="col-sm-11 col-md-8 col-lg-7 mb-3">
+              <select class="custom-select" id="customSelectValidation" for="customSelectValidation" name="ride[spot]" required>
+                <option selected >Number of spots</option>
+                <option value="1" >One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+              </select>
+            </div>
           </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customControlValidation2"  class="custom-control-input" name="ride[traveling_status]" value="leaving" required>
-            <label class="custom-control-label" for="customControlValidation2">Leaving</label>
+          <div class="form-row">
+            <div class="col-sm-11 col-md-8 col-lg-7 mb-3">
+              <label for="validationCustom03">Date</label>
+              <% date=Time.now.strftime("%Y-%m-%d") %>
+              <input class="form-control" type="date"  value="<%= date %>" id="validationCustom03" name="ride[date]" required>
+            </div>
+            <div class="col-sm-11 col-md-8 col-lg-4 mb-3">
+              <label for="validationCustom04">Time</label>
+              <% time=Time.now.strftime("%k:%M") %>
+               <input class="form-control" type="time" value="<%= time %>" id="validationCustom04" name="ride[time]">
+            </div>
           </div>
-        </div>
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </form>
       </div>
-      <div class="form-row">
-        <div class="col-md-7 mb-3">
-          <select class="custom-select" id="customSelectValidation" for="customSelectValidation" name="ride[spot]" required>
-            <option selected >Number of spots</option>
-            <option value="1" >One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col-md-7 mb-3">
-          <label for="validationCustom03">Date</label>
-          <% date=Time.now.strftime("%Y-%m-%d") %>
-          <input class="form-control" type="date"  value="<%= date %>" id="validationCustom03" name="ride[date]" required>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="validationCustom04">Time</label>
-          <% time=Time.now.strftime("%k:%M") %>
-           <input class="form-control" type="time" value="<%= time %>" id="validationCustom04" name="ride[time]">
-        </div>
-      </div>
-      <button class="btn btn-primary" type="submit">Submit form</button>
-    </form>
+    </div>
   </div>
-</div>
 </form>
 
 <%= render partial: "/rides/form_validation", :formats => [:js] %>
