@@ -1,5 +1,5 @@
 <% @drives.each do |drive| %>
-  <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
+  <div class="col-sm-6 col-md-5 col-lg-4 mb-5">
     <div class="card bg-light">
     <% if drive.airport == "JFK"%>
       <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
@@ -24,7 +24,7 @@
       <div class="col-11">
       <% Ride.all.each do |ride| %>
          <% if Date.parse(ride.date.to_s) == Date.parse(drive.date.to_s) && ride.airport == drive.airport %>
-          <div class="mb-3">
+          <div class="mb-3">  
             <%= link_to "Ride needed", needed_drives_path, class: "text-danger", style: "text-decoration: none"%>
           </div>
           <% end %>
