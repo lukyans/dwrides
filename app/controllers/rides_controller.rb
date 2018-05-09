@@ -15,7 +15,7 @@ class RidesController < ApplicationController
     @ride.user = current_user
     if @ride.save
       flash[:success] = "Ride has been requested."
-      redirect_to root_path
+      redirect_to rides_path
     else
       render :new
     end
