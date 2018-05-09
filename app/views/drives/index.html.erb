@@ -1,58 +1,26 @@
 <% if !current_user.drives.any? %>
-  <%= render partial: "/drives/form"%>
-<% elsif  %>
-  <%= render partial: "/drives/nav" %>
-  <div class="container mt-4">
-    <div class="h3 text-secondary mb-1">My offered Rides</div>
-      <div class="row">
-      <% @drives.each do |drive| %>
-        <div class="col-sm-6 col-md-4 col-lg-3">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="card border-light bg-light mt-3" style="width: 18rem;">
-              <% if drive.airport == "JFK"%>
-              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
-              <% elsif drive.airport == "SFO" %>
-              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945601/tramonto-golden-gate.jpg" alt="Card image cap">
-              <% else %>
-              <img class="card-img-top border-light rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1525048367/denver.jpg" alt="Card image cap">
-              <% end %>
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-2">
-                      <% if drive.matching_with_rides(drive) %>
-                        <div class="mb-2">
-                          <i class="material-icons text-danger">notifications_active</i>
-                        </div>
-                      <% end %>
-                      <i class="material-icons text-muted align-top">local_airport</i>
-                      <i class="material-icons text-muted align-top mt-3">group_add</i>
-                      <i class="material-icons text-muted align-top mt-3">schedule</i>
-                    </div>
-                    <div class="col-10">
-
-                      <% if drive.matching_with_rides(drive) %>
-                        <div class="mb-3">
-                          <%= link_to "Ride needed", needed_drives_path, class: "text-danger", style: "text-decoration: none"%>
-                        </div>
-                      <% end %>
-                      <p class=""><%= drive.airport %></p>
-                      <p><%= drive.spot %></p>
-                      <%=drive.date.strftime('%A, %b %d, %Y')%>
-                      <div>
-                        <%=drive.time.strftime('%H:%M %p')%>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<div class="container mt-3 mb-3">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= render partial: "/drives/form"%>
     </div>
   </div>
-  <div class="mt-5">
-    <%= render partial: "/drives/form"%>
+</div>
+<% elsif  %>
+  <%= render partial: "/drives/nav" %>
+  <div class="container mb-5 mt-5">
+    <h2>My offered Rides</h2>
+    <div class="row mt-0">
+      <div class="col-9">
+        <div class="row mt-0">
+          <%= render partial: "/drives/offered_rides" %>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="col-12">
+          <%= render partial: "/drives/form" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

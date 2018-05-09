@@ -20,7 +20,7 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-2">
-                      <%if ride.matching_with_drives %>
+                      <%if ride.matching_with_drives? %>
                           <div class="mb-2">
                             <i class="material-icons text-danger">notifications_active</i>
                           </div>
@@ -38,7 +38,7 @@
                       <i class="material-icons text-muted align-top mt-3">schedule</i>
                     </div>
                     <div class="col-10">
-                      <%if ride.matching_with_drives %>
+                      <%if ride.matching_with_drives? %>
                         <div class="mb-3">
                           <%= link_to "Ride availalbe", available_rides_path, class: "text-danger", style: "text-decoration: none"%>
                         </div>
@@ -55,7 +55,7 @@
                       <p><%= ride.spot %></p>
                       <%=ride.date.strftime('%A, %b %d, %Y')%>
                       <div>
-                        <%=ride.time.strftime('%H:%M %p')%>
+                        <%=ride.time.strftime('%I:%M %p')%>
                       </div>
                     </div>
                   </div>

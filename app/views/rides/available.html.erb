@@ -3,7 +3,7 @@
 <div class="container mt-4">
   <div class="h3 text-secondary mb-1">Available Rides</div>
     <% if @drives.nil? %>
-      <div class="text-dark h5"> You don't have available rides</p>
+      <div class="text-dark h5"> You don't have available rides</div>
     <% end %>
     <div class="row">
       <% @rides.each do |ride| %>
@@ -28,7 +28,7 @@
                           <p><%= drive.spot %></p>
                           <%=drive.date.strftime('%A, %b %d, %Y')%>
                           <div>
-                            <%=drive.time.strftime('%H:%M %p')%>
+                            <%=drive.time.strftime('%I:%M %p')%>
                           </div>
                         </div>
                       </div>
@@ -38,7 +38,7 @@
               </div>
             </div>
         <% else %>
-          <p class="text-muted">You have no available ride offers</p>
+          <!-- <p class="text-muted">You have no available ride offers</p> -->
         <% end %>
       <% end %>
     <% end %>
