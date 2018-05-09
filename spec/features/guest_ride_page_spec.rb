@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Rides", :type => :feature do
   let(:user) { create(:user) }
+      user = FactoryBot.create(:user)
   # when I visit ride page
   #   I can see a ride form
 
