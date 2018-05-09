@@ -2,39 +2,35 @@
 
 <div class="container mb-5 mt-5">
   <h2>Need a Ride</h2>
-    <div class="row mt-0">
-      <% @rides.each do |ride| %>
-        <% @drives.each do |drive| %>
-         <%if Date.parse(ride.date.to_s) == Date.parse(drive.date.to_s) && ride.airport == drive.airport %>
-          <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
-            <div class="card bg-light">
-              <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
-                <div class="d-flex justify-content-between align-items-start mt-3">
-                  <div class="col-2">
-                        <i class="material-icons text-muted mt-2">person</i>
-                        <i class="material-icons text-muted mt-2 mb-2">local_airport</i>
-                        <i class="material-icons text-muted mt-2 mb-2">group_add</i>
-                        <i class="material-icons text-muted mt-2 mb-2">schedule</i>
-                      </div>
-                      <div class="col-10">
-                        <p class="mt-2"><%= ride.user.first_name.capitalize %> <%= ride.user.last_name.capitalize %></p>
-                        <p class="mt-2"><%= ride.airport %></p>
-                        <p class="mt-2"><%= ride.spot %></p>
-                        <p class="mt-2 mb-0">
-                          <%=ride.date.strftime('%A, %b %d, %Y')%>
-                          <div>
-                            <%=ride.time.strftime('%H:%M %p')%>
-                          </div>
-                        </p>
-                      </div>
-                    </div>
+  <div class="row mt-0">
+    <% @rides.each do |ride| %>
+     <% if ride.matching_with_drives? %>
+      <div class="col-sm-6 col-md-5 col-lg-3 mb-5">
+        <div class="card bg-light">
+          <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
+            <div class="d-flex justify-content-between align-items-start mt-3">
+              <div class="col-2">
+                <i class="material-icons text-muted mt-2">person</i>
+                <i class="material-icons text-muted mt-2 mb-2">local_airport</i>
+                <i class="material-icons text-muted mt-2 mb-2">group_add</i>
+                <i class="material-icons text-muted mt-2 mb-2">schedule</i>
+              </div>
+              <div class="col-10">
+                <p class="mt-2"><%= ride.user.first_name.capitalize %> <%= ride.user.last_name.capitalize %></p>
+                <p class="mt-2"><%= ride.airport %></p>
+                <p class="mt-2"><%= ride.spot %></p>
+                <p class="mt-2 mb-0">
+                  <%= ride.date.strftime('%A, %b %d, %Y') %>
+                  <div>
+                    <%= ride.time.strftime('%I:%M %p') %>
                   </div>
-                </div>
+                </p>
               </div>
             </div>
           </div>
-        <% end %>
+        </div>
       <% end %>
     <% end %>
+    <!-- <div class="text-dark h5">There are no requested rides</div> -->
   </div>
 </div>
