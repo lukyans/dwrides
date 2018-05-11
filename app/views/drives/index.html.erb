@@ -1,12 +1,12 @@
 <% if !current_user.drives.any? %>
-<div class="container mt-3 mb-3">
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <%= render partial: "/drives/form"%>
+  <div class="container mt-3 mb-3">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <%= render partial: "/drives/form"%>
+      </div>
     </div>
   </div>
-</div>
-<% elsif  %>
+<% else %>
   <%= render partial: "/drives/nav" %>
   <div class="container mb-5 mt-5">
     <h2>My offered Rides</h2>

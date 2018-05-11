@@ -3,7 +3,7 @@ class DrivesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @drives = Drive.all
+    @drives = current_user.drives if user_signed_in?
   end
 
   def new
@@ -15,15 +15,25 @@ class DrivesController < ApplicationController
     @drive.user = current_user
     if @drive.save
       flash[:success] = "Ride has been offered."
-      redirect_to root_path
+      redirect_to drives_path
     else
       render :new
     end
   end
 
+  def needed
+    @drives = current_user.drives if user_signed_in?
+    @rides = Ride.all
+  end
+
+  def offered
+    @drives = current_user.drives if user_signed_in?
+    @rides = Ride.all
+  end
+
 private
 
   def drive_params
-    params.require(:drive).permit(:airport, :spot, :date)
+    params.require(:drive).permit(:airport, :spot, :date, :time)
   end
 end
