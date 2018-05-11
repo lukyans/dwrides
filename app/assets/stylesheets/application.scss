@@ -18,11 +18,31 @@
 
  .bg-nav {
      background-color: 	#E80000;
-     opacity: 0.9;
+    //  opacity: 0.9;
+    // filter: brightness(100%);
+     filter: drop-shadow(8px 8px 10px gray);
  }
 
- h2 {
+ h2, .nav-item, .container {
+     font-family: "TTNorms-Light", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-weight: 400;
+     font-style: normal;
+ }
+
+ .container {
+     font-family:  "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-weight: 400;
+     font-style: normal;
+ }
+
+.navbar-nav .nav-item, .user-name{
+     font-family: "TTNorms-Light", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-weight: 500;
+     font-style: normal;
+ }
+
+ .navbar-brand {
      font-family: "TTNorms-Light", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-weight: normal;
+     font-weight: 600;
      font-style: normal;
  }
