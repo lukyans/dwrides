@@ -1,40 +1,38 @@
 <% @drives.each do |drive| %>
   <div class="col-sm-6 col-md-5 col-lg-4 mb-5">
     <div class="card bg-light">
-    <% if drive.airport == "JFK"%>
-      <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
-    <% elsif drive.airport == "SFO" %>
-      <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945601/tramonto-golden-gate.jpg" alt="Card image cap">
-    <% else %>
-      <img class="card-img-top border-light rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1525048367/denver.jpg" alt="Card image cap">
-    <% end %>
-    <div class="d-flex justify-content-between align-items-start mt-3">
-      <div class="col-2">
-        <% if drive.matching_with_rides? == true%>
-          <div class="mb-1">
-            <i class="material-icons text-danger">notifications_active</i>
-          </div>
-        <% end %>
-        <i class="material-icons text-muted mt-2 mb-2">local_airport</i>
-        <i class="material-icons text-muted mt-2 mb-2">group_add</i>
-        <i class="material-icons text-muted mt-2 mb-2">schedule</i>
-      </div>
-      <div class="col-11">
-        <% if drive.matching_with_rides? == true%>
+      <% if drive.airport == "JFK"%>
+        <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945852/empire_state_building_getty_zsolt_hlinka.jpg" alt="Card image cap">
+      <% elsif drive.airport == "SFO" %>
+        <img class="card-img-top rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1524945601/tramonto-golden-gate.jpg" alt="Card image cap">
+      <% else %>
+        <img class="card-img-top border-light rounded img-thumbnail img-responsive" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1525048367/denver.jpg" alt="Card image cap">
+      <% end %>
+      <div class="d-flex justify-content-between align-items-start mb-0 mt-3">
+        <div class="col-2">
+          <% if drive.matching_with_rides? == true%>
+            <i class="material-icons text-danger mb-3">notifications_active</i>
+          <% end %>
+          <i class="material-icons text-muted mb-3">local_airport</i>
+          <i class="material-icons text-muted mb-3">group_add</i>
+          <i class="material-icons text-muted mb-3">schedule</i>
+        </div>
+        <div class="col-11">
+          <% if drive.matching_with_rides? == true%>
+            <div class="mb-3">
+              <%= link_to "Ride needed", needed_drives_path, class: "text-danger", style: "text-decoration: none"%>
+            </div>
+          <% end %>
+          <div class="mb-3"><%= drive.airport %></div>
+          <div class="mb-3"><%= drive.spot %></div>
           <div class="mb-3">
-            <%= link_to "Ride needed", needed_drives_path, class: "text-danger", style: "text-decoration: none"%>
+            <%= drive.date.strftime('%a %b %d, %Y') %>
+            <div>
+              <%= drive.time.strftime("%I:%M %p") %>
+            </div>
           </div>
-        <% end %>
-        <p class="mt-2"><%= drive.airport %></p>
-        <p class="mt-2"><%= drive.spot %></p>
-        <p class="mt-2 mb-0">
-          <%=drive.date.strftime('%a %b %d, %Y')%>
-          <div>
-            <%=drive.time.strftime("%I:%M %p")%>
-          </div>
-      </p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 <% end %>
