@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 20180408225432) do
   create_table "drives", force: :cascade do |t|
     t.string "airport"
     t.integer "spot"
-    t.datetime "date"
+    t.date "date"
+    t.time "time"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
   end
@@ -28,7 +29,8 @@ ActiveRecord::Schema.define(version: 20180408225432) do
     t.integer "flight_number"
     t.string "traveling_status"
     t.integer "spot"
-    t.datetime "date"
+    t.date "date"
+    t.time "time"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
