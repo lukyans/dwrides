@@ -10,11 +10,12 @@
       <% end %>
 
       <div class="d-flex justify-content-between align-items-start mb-0 mt-3">
-        <div class="col-2">
+        <div class="col-3">
           <%if ride.matching_with_drives? == true %>
             <i class="material-icons text-danger mb-3">notifications_active</i>
-          <% end %>
+          <% else %>
             <i class="material-icons text-muted mb-3">local_airport</i>
+          <% end %>
           <% if ride.flight_number? %>
             <i class="material-icons text-muted mb-3">info</i>
           <%end%>
