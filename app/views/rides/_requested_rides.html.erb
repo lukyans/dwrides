@@ -13,9 +13,8 @@
         <div class="col-3">
           <%if ride.matching_with_drives? == true %>
             <i class="material-icons text-danger mb-3">notifications_active</i>
-          <% else %>
-            <i class="material-icons text-muted mb-3">local_airport</i>
           <% end %>
+            <i class="material-icons text-muted mb-3">local_airport</i>
           <% if ride.flight_number? %>
             <i class="material-icons text-muted mb-3">info</i>
           <%end%>
