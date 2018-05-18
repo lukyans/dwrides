@@ -34,7 +34,7 @@
           <% end %>
           <div class="mb-3"><%= ride.airport %></div>
           <% if ride.flight_number? %>
-            <div class="mb-3">Flight# <%= ride.flight_number %></div>
+            <div class="mb-3">Flight: <%= ride.flight_number %></div>
           <%end%>
           <div class="mb-3"><%= ride.traveling_status.capitalize %></div>
           <div class="mb-3"><%= ride.spot %></div>
