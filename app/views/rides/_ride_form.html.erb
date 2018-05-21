@@ -1,8 +1,8 @@
 <form role="form" action="/rides" accept-charset="UTF-8" method="post">
   <form class="needs-validation" novalidate>
-   <div class="form-row">
-     <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-       <label for="validationCustom01">Airport</label>
+   <div class="form-row required">
+     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+       <label for="validationCustom01" class="mb-1">Airport</label>
        <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
        <div class="invalid-feedback">
          Please provide a valid airport.
@@ -10,8 +10,8 @@
      </div>
    </div>
    <div class="form-row">
-      <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-        <label for="validationCustom02">Flight Number</label>
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom02" class="mb-1">Flight Number</label>
         <input type="text" class="form-control" id="validationCustom02" placeholder="Flight Number" name="ride[flight_number]">
         <div class="invalid-feedback">
           Please provide a valid Flight Number.
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-6 mb-2">
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" id="customControlValidation1" class="custom-control-input" name="ride[traveling_status]" value="arriving" required>
           <label class="custom-control-label" for="customControlValidation1">Arriving</label>
@@ -30,8 +30,8 @@
         </div>
       </div>
     </div>
-    <div class="form-row">
-      <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
+    <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
         <select class="custom-select" id="customSelectValidation" for="customSelectValidation" name="ride[spot]" required>
           <option selected >Number of spots</option>
           <option value="1" >One</option>
@@ -41,16 +41,16 @@
         </select>
       </div>
     </div>
-    <div class="form-row">
-      <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-        <label for="validationCustom03">Date</label>
+    <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom03" class="mb-1">Date</label>
         <% date=Time.now.strftime("%Y-%m-%d") %>
-        <input class="form-control" type="date"  value="<%= date %>" id="validationCustom03" name="ride[date]" required>
+        <input class="form-control" type="date"  value="  <%= date %>" id="validationCustom03" name="ride[date]" required>
       </div>
     </div>
-    <div class="form-row">
-      <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-        <label for="validationCustom04">Time</label>
+    <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom04" class="mb-1">Time</label>
         <% time=Time.now.strftime("%H:%M") %>
         <input class="form-control" type="time" value="<%= time %>" id="validationCustom04" name="ride[time]">
       </div>
