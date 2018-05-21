@@ -1,13 +1,13 @@
-<div class="container d-flex flex-column flex-md-row mt-3">
-  <div class="bg-secondary-block w-100" style="height: 630px">
-      <div class="p-3 p-md-5">
-        <div class="container col-8 form">
+<div class="bg-container container-hover">
+<div class="container d-flex flex-column flex-md-row mt-3 justify-content-md-center">
+  <div class="bg-secondary-block " style="height: 590px">
+      <div class="p-3 p-md-5 ml-5 mr-5">
+        <div class="container col-12 form">
           <h2 class="mb-3">Request ride</h2>
           <%= render partial: "/rides/ride_form"%>
         </div>
       </div>
     </div>
-
         <!-- <a class="btn bg-button btn-lg btn-block text-white">Ride</a> -->
       <!-- <div class="card" style="width: 16rem;">
         <a href="https://diamondway.org/canada2018/" class="card-link" target="_blank">
@@ -22,12 +22,13 @@
           </a>
         </div>
       </div> -->
-  <div class="bg-primary-block w-100" style="height: 630px">
-    <div class="p-3 p-md-5">
-      <div class="container col-8 form">
+  <div class="bg-primary-block" style="height: 530px">
+    <div class="p-1 p-md-5 ml-5 mr-5">
+      <div class="container col-12 form">
         <h2 class="mb-3">Offer ride</h2>
         <%= render partial: "/drives/drive_form"%>
       </div>
     </div>
   </div>
+</div>
 </div>
