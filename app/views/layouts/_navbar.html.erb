@@ -7,28 +7,28 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item nav-link align-right">
-        <%= link_to "Ride", rides_path, class: "text-dark", style: "text-decoration: none" %>
+      <li class="nav-item nav-link align-right mr-3">
+        <%= link_to "Request", root_path, class: "text-secondary", style: "text-decoration: none" %>
       </li>
-      <li class="nav-item nav-link align-right">
-        <%= link_to "Drive", drives_path, class: "text-dark", style: "text-decoration: none" %>
+      <li class="nav-item nav-link align-right mr-3">
+        <%= link_to "My Rides", rides_path, class: "text-secondary", style: "text-decoration: none" %>
       </li>
     </ul>
   </div>
   <% if !current_user %>
-    <li class="nav-item nav-link align-right">
+    <li class="nav-item nav-link align-rightmr-3">
       <%= link_to "Sign Up", new_user_registration_path, class: "text-dark", style: "text-decoration: none" %>
     </li>
-    <li class="nav-item nav-link align-right">
+    <li class="nav-item nav-link align-right mr-3">
       <%= link_to "Log In", new_user_session_path, class: "text-dark", style: "text-decoration: none" %>
     </li>
 
   <% else %>
     <ul class="navbar-nav mr-2">
       <li class="nav-link align-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= link_to current_user.first_name, rides_path, class: "text-dark user-name", style: "text-decoration: none" %>
+        <%= link_to current_user.first_name, rides_path, class: "text-secondary user-name", style: "text-decoration: none" %>
       </li>
       <div class="dropdown-menu dropdown-menu-right mr-3">
         <button class="dropdown-item font-weight-light" type="button">Profile</button>
