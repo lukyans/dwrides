@@ -3,7 +3,7 @@ class RidesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @rides = current_user.rides if user_signed_in?
+    @rides = current_user.rides #if user_signed_in?
   end
 
   def new
@@ -21,11 +21,14 @@ class RidesController < ApplicationController
     end
   end
 
-  def available
+  def requested
     @rides = current_user.rides if user_signed_in?
     @drives = Drive.all
   end
 
+  def offered
+
+  end
 
 private
 
