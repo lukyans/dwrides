@@ -1,0 +1,41 @@
+<form role="form" action="/courses" accept-charset="UTF-8" method="post">
+  <form class="needs-validation" novalidate>
+   <div class="form-row required">
+     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+       <label for="validationCustom01" class="mb-1">Name</label>
+       <input type="text" class="form-control" id="validationCustom01" placeholder="Name" name="course[name]" required>
+       <div class="invalid-feedback">
+         Please provide a valid name.
+       </div>
+     </div>
+   </div>
+   <div class="form-row">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom02" class="mb-1">Location</label>
+        <input type="text" class="form-control" id="validationCustom02" placeholder="City" name="course[location]">
+        <div class="invalid-feedback">
+          Please provide a valid location.
+        </div>
+      </div>
+    </div>
+    <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom01" class="mb-1">Airports</label>
+        <input type="text" class="form-control" id="validationCustom01" placeholder="Name" name="course[airport]" required>
+        <div class="invalid-feedback">
+          Please provide a valid airport.
+        </div>
+      </div>
+    </div>
+    <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <label for="validationCustom03" class="mb-1">Date</label>
+        <% date=Time.now.strftime("%Y-%m-%d") %>
+        <input class="form-control" type="date"  value="<%= date %>" id="validationCustom03" name="course[date]" required>
+      </div>
+    </div>
+    <button class="btn btn-dark mt-1" type="submit">Submit form</button>
+  </form>
+</form>
+
+<%= render partial: "/rides/form_validation", :formats => [:js] %>
