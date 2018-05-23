@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       get :offered
     end
   end
+
+  resources :courses, only: [:index, :create]
 end
