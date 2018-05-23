@@ -1,8 +1,17 @@
 <form role="form" action="/rides" accept-charset="UTF-8" method="post">
   <form class="needs-validation" novalidate>
+  <div class="form-row required">
+    <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+      <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event]" required>
+        <option selected >Event</option>
+        <option value="September 16, New York City, Lecture with Lama Ole Nydahl">September 16, New York City, Lecture with Lama Ole Nydahl</option>
+        <option value="2" >September 27-30, Alberta, Canada Course with Lama Ole Nydahl</option>
+      </select>
+    </div>
+   </div>
    <div class="form-row required">
      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-       <label for="validationCustom01" class="mb-1">Airport</label>
+       <label for="validationCustom01" class="mb-1">Pick up/Drop off</label>
        <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
        <div class="invalid-feedback">
          Please provide a valid airport.
@@ -32,7 +41,7 @@
     </div>
     <div class="form-row required">
       <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-        <select class="custom-select" id="customSelectValidation" for="customSelectValidation" name="ride[spot]" required>
+        <select class="custom-select" id="customSelectValidation2" for="customSelectValidation2" name="ride[spot]" required>
           <option selected >Number of spots</option>
           <option value="1" >One</option>
           <option value="2">Two</option>
@@ -45,7 +54,7 @@
       <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
         <label for="validationCustom03" class="mb-1">Date</label>
         <% date=Time.now.strftime("%Y-%m-%d") %>
-        <input class="form-control" type="date"  value="  <%= date %>" id="validationCustom03" name="ride[date]" required>
+        <input class="form-control" type="date"  value="<%= date %>" id="validationCustom03" name="ride[date]" required>
       </div>
     </div>
     <div class="form-row required">
