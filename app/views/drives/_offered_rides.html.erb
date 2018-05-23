@@ -1,4 +1,4 @@
-<% @drives.each do |drive| %>
+<!-- <% @drives.each do |drive| %>
   <div class="col-sm-6 col-md-5 col-lg-4 mb-5">
     <div class="card bg-light">
       <% if drive.airport == "JFK"%>
@@ -35,4 +35,15 @@
       </div>
     </div>
   </div>
-<% end %>
+<% end %> -->
+<div class="card">
+  <div class="card-header">
+    <strong>
+      <h5>My Offered Rides</h5>
+    </strong>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= link_to "Alberta, Canada 09/26/2018", offered_drives_path, class: "text-muted"%><i class="material-icons text-danger mb-3">notifications_active</i></p>
+    <p class="card-text">New York City 11/25/2018</p>
+  </div>
+</div>
