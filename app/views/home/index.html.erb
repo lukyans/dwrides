@@ -1,34 +1,20 @@
 <div class="bg-container container-hover">
-<div class="container d-flex flex-column flex-md-row mt-3 justify-content-md-center">
-  <div class="bg-secondary-block w-100" style="height: 570px">
+  <div class="container d-flex flex-column flex-md-row justify-content-md-center">
+    <div class="bg-secondary-block w-100" style="height: 570px">
       <div class="p-3 p-md-5">
-        <div class="container col-12 form">
+        <div class="container col-11 form">
           <h2 class="mb-3">Request ride</h2>
           <%= render partial: "/rides/ride_form"%>
         </div>
       </div>
     </div>
-        <!-- <a class="btn bg-button btn-lg btn-block text-white">Ride</a> -->
-      <!-- <div class="card" style="width: 16rem;">
-        <a href="https://diamondway.org/canada2018/" class="card-link" target="_blank">
-          <img class="card-img-top border-light rounded img-thumbnail img-responsive img-fluid" src="https://res.cloudinary.com/dbo1mgpii/image/upload/v1525140160/DWBA17519_2012_EC_Summercourse_MG_7129_rVE-scr.jpg" alt="image">
-        </a>
-        <div class="card-body">
-          <a href="https://diamondway.org/canada2018/" class="card-link" target="_blank">
-          <div class="card-text text-dark">
-            <p class="h6">Great Seal Canada Course with Lama Ole Nydahl</p>
-            <p><strong>September</strong> 27-30 | Chestermere Lake, AB</p>
-          </div>
-          </a>
+    <div class="bg-primary-block w-100" style="height: 570px">
+      <div class="p-1 p-md-5">
+        <div class="container col-11 form">
+          <h2 class="mb-3">Offer ride</h2>
+          <%= render partial: "/drives/drive_form"%>
         </div>
-      </div> -->
-  <div class="bg-primary-block w-100" style="height: 570px">
-    <div class="p-1 p-md-5">
-      <div class="container col-12 form">
-        <h2 class="mb-3">Offer ride</h2>
-        <%= render partial: "/drives/drive_form"%>
       </div>
     </div>
   </div>
-</div>
 </div>
