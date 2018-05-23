@@ -1,8 +1,17 @@
 <form role="form" action="/drives" accept-charset="UTF-8" method="post">
   <form class="needs-validation" novalidate>
     <div class="form-row required">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+        <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="drive[event]" required>
+          <option selected >Event</option>
+          <option value="1">September 16, New York City, Lecture with Lama Ole Nydahl</option>
+          <option value="2" >September 27-30, Alberta, Canada Course with Lama Ole Nydahl</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row required">
       <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-        <label for="validationCustom01" class="mb-1">Airport</label>
+        <label for="validationCustom01" class="mb-1">Pick up/Drop off</label>
         <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="drive[airport]" required>
         <div class="invalid-feedback">
           Please provide a valid airport.
@@ -33,7 +42,7 @@
           <% time=Time.now.strftime("%H:%M") %>
           <input class="form-control" type="time" value="<%= time %>" id="validationCustom03" name="drive[time]" required>
        </div>
-     </div></br></br></br></br></br>
+     </div></br></br></br></br>
     <button class="btn btn-dark" type="submit">Submit form</button>
   </form>
 </form>
