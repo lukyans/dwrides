@@ -21,7 +21,7 @@ class DrivesController < ApplicationController
     end
   end
 
-  def needed
+  def requested
     @drives = current_user.drives if user_signed_in?
     @rides = Ride.all
   end

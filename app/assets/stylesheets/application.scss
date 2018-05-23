@@ -17,10 +17,10 @@
 
 
  .bg-nav {
-     background-color: 	#E80000;
+     background-color: 	#e10a0a;
     //  opacity: 0.9;
     // filter: brightness(100%);
-     filter: drop-shadow(8px 8px 10px gray);
+    //  filter: drop-shadow(8px 8px 10px gray);
  }
 
  h2, .nav-item, .container {
@@ -31,8 +31,14 @@
 
  .container {
      font-family:  "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-weight: 400;
+     font-weight: 500;
      font-style: normal;
+ }
+
+ .navbar-brand {
+   font-family: "TTNorms-Light", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-weight: 600;
+   font-style: normal;
  }
 
 .navbar-nav .nav-item, .user-name{
@@ -41,8 +47,26 @@
      font-style: normal;
  }
 
- .navbar-brand {
-     font-family: "TTNorms-Light", "Avenir Next", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-     font-weight: 600;
-     font-style: normal;
+.bg-secondary-block {
+  background-color: #FDC898;
  }
+
+.bg-primary-block {
+ background-color: #53868B;
+}
+// #e10a0a
+
+.btn.bg-button {
+  // background-color: #00008b
+  // #563d7c
+}
+
+.form-row.required label:after {
+  content:"*";
+  color:red;
+}
+
+.bg-container {
+  // background-color: #FFFFFF
+  // background-image: url("https://res.cloudinary.com/dbo1mgpii/image/upload/v1525225670/DWBA7311_olesgau_0191_raw-scr.jpg")
+}
