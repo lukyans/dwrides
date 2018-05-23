@@ -4,6 +4,7 @@ class Drive < ApplicationRecord
   validates :date, presence: true
 
   belongs_to :user
+  has_many :courses
 
   def matching_with_rides?
     Ride.all.each do |ride|
