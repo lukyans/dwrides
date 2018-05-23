@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408225432) do
+ActiveRecord::Schema.define(version: 20180523194116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "airport"
+    t.datetime "date"
+    t.bigint "ride_id"
+    t.bigint "drive_id"
+    t.index ["drive_id"], name: "index_courses_on_drive_id"
+    t.index ["ride_id"], name: "index_courses_on_ride_id"
+  end
 
   create_table "drives", force: :cascade do |t|
     t.string "airport"
@@ -32,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180408225432) do
     t.date "date"
     t.time "time"
     t.bigint "user_id"
+    t.string "event"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
@@ -55,6 +67,8 @@ ActiveRecord::Schema.define(version: 20180408225432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "drives"
+  add_foreign_key "courses", "rides"
   add_foreign_key "drives", "users"
   add_foreign_key "rides", "users"
 end
