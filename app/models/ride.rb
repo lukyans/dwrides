@@ -17,4 +17,16 @@ class Ride < ApplicationRecord
   def format_time
     self.time.strftime("%b %e")
   end
+
+  def event_date
+    self.event.split(",")[0] if !self.event.nil?
+  end
+
+  def event_location
+    self.event.split(",")[1] if !self.event.nil?
+  end
+
+  def event_name
+    self.event.split(",")[2] if !self.event.nil?
+  end
 end
