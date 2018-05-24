@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523200432) do
+ActiveRecord::Schema.define(version: 20180524040503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,13 @@ ActiveRecord::Schema.define(version: 20180523200432) do
     t.string "name"
     t.string "location"
     t.string "airport"
-    t.datetime "date"
+    t.date "date"
     t.bigint "ride_id"
     t.bigint "drive_id"
+    t.bigint "user_id"
     t.index ["drive_id"], name: "index_courses_on_drive_id"
     t.index ["ride_id"], name: "index_courses_on_ride_id"
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "drives", force: :cascade do |t|
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180523200432) do
     t.time "time"
     t.bigint "user_id"
     t.string "event"
+    t.boolean "reserved", default: false, null: false
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
@@ -70,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180523200432) do
 
   add_foreign_key "courses", "drives"
   add_foreign_key "courses", "rides"
+  add_foreign_key "courses", "users"
   add_foreign_key "drives", "users"
   add_foreign_key "rides", "users"
 end
