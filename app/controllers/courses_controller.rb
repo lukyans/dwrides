@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
+
   def index
   end
 
@@ -9,11 +12,11 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     @course.user = current_user
-    if @course.save
+      if @course.save(:validate => false)
       flash[:success] = "Course has been added."
       redirect_to rides_path
     else
-      render :action => :new
+      render :new
     end
   end
 
