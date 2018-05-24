@@ -4,14 +4,17 @@
     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
       <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event]" required>
         <option selected >Event</option>
-        <option value="September 16, New York City, Lecture with Lama Ole Nydahl">September 16, New York City, Lecture with Lama Ole Nydahl</option>
-        <option value="2" >September 27-30, Alberta, Canada Course with Lama Ole Nydahl</option>
+        <% Course.all.each do |course| %>
+          <option value="<%= course.course_details %>">
+            <%= course.course_details %>
+          </option>
+        <% end %>
       </select>
     </div>
    </div>
    <div class="form-row required">
      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-       <label for="validationCustom01" class="mb-1">Pick up/Drop off</label>
+       <label for="validationCustom01" class="mb-1">Airport</label>
        <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
        <div class="invalid-feedback">
          Please provide a valid airport.
