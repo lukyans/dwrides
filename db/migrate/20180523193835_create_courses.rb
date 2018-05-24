@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :location
       t.string :airport
-      t.datetime :date
+      t.date :date
     end
   end
 end
