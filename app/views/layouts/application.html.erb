@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <%= render "/shared/nav" %>
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> mb-0"><%= value %></div>
       <% end %>
