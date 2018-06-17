@@ -1,6 +1,5 @@
 class Ride < ApplicationRecord
   validates :airport, presence: true
-  # validates :flight_number, presence: true
   validates :traveling_status, presence: true
   validates :spot, presence: true
   validates :date, presence: true
@@ -17,7 +16,7 @@ class Ride < ApplicationRecord
   def format_time
     self.time.strftime("%b %e")
   end
-
+  
   def event_date
     self.event.split(",")[0] if !self.event.nil?
   end

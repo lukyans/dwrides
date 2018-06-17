@@ -1,2 +1,31 @@
 <%= render partial: "/rides/nav" %>
-<%= render partial: "rides/ride_requests" %>
+<div class="container mt-5">
+  <% if !@rides.any? %>
+    <h4>You don't have any rides</h4>
+  <% else %>
+    <table class="table">
+      <tbody>
+        <% @rides.each do |ride| %>
+        <tr>
+          <td><%= ride.event_date %></td>
+          <td ><%= ride.event_location %></td>
+          <td><%= ride.event_name %></td>
+          <% if !ride.reserved %>
+            <td>
+              <%= link_to 'Reserved', ride_path(ride), class: "btn btn btn-info btn-sm" %>
+            </td>
+          <% end %>
+          <td>
+          <td><i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is requested">notifications_active</i></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+      $('[data-toggle="tooltip"]').popover();
+  });
+</script>

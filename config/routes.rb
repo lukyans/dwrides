@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get :available
     end
   end
-  resources :rides, only: [:index, :create] do
+  resources :rides, only: [:index, :show, :create] do
     collection do
       get :requested
       get :offered
