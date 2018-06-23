@@ -9,11 +9,14 @@
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
     <ul class="navbar-nav">
+      <!-- <li class="nav-item nav-link align-right mr-2">
+        <%= link_to "Home", root_path, class: "text-secondary", style: "text-decoration: none" %>
+      </li> -->
       <li class="nav-item nav-link align-right mr-2">
-        <%= link_to "Request", root_path, class: "text-secondary", style: "text-decoration: none" %>
+        <%= link_to "My Requests", rides_path, class: "text-secondary", style: "text-decoration: none" %>
       </li>
       <li class="nav-item nav-link align-right mr-2">
-        <%= link_to "My Rides", rides_path, class: "text-secondary", style: "text-decoration: none" %>
+        <%= link_to "My Offers", drives_path, class: "text-secondary", style: "text-decoration: none" %>
       </li>
     </ul>
 
@@ -26,7 +29,7 @@
       </u>
     <% else %>
       <% if current_user.admin %>
-        <a class="btn btn-warning btn-sm text-dark nav-button" href="/courses" role="button" aria-pressed="true">Admin</a>
+        <a class="btn btn-warning btn-sm text-dark nav-button" href="/events" role="button" aria-pressed="true">Admin</a>
       <% end %>
       <ul class="navbar-nav mr-2">
         <li class="nav-link align-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
