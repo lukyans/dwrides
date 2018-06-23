@@ -20,7 +20,7 @@
         <div class="col-11">
           <% if drive.matching_with_rides? == true%>
             <div class="mb-3">
-              <%= link_to "Ride needed", needed_drives_path, class: "text-danger", style: "text-decoration: none"%>
+              <%= link_to "Ride needed", class: "text-danger", style: "text-decoration: none"%>
             </div>
           <% end %>
           <div class="mb-3"><%= drive.airport %></div>
@@ -36,14 +36,3 @@
     </div>
   </div>
 <% end %> -->
-<div class="card">
-  <div class="card-header">
-    <strong>
-      <h5>My Offered Rides</h5>
-    </strong>
-  </div>
-  <div class="card-body">
-    <p class="card-text"><%= link_to "Alberta, Canada 09/26/2018", offered_drives_path, class: "text-muted"%><i class="material-icons text-danger mb-3">notifications_active</i></p>
-    <p class="card-text">New York City 11/25/2018</p>
-  </div>
-</div>
