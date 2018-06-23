@@ -5,27 +5,32 @@ class Ride < ApplicationRecord
   validates :date, presence: true
 
   belongs_to :user
-  has_many :courses
+  belongs_to :event
+  has_many   :trips, dependent: :destroy
+  has_many   :drives, through: :trips
 
-  def matching_with_drives?
-    Drive.all.each do |drive|
-      return true if Date.parse(self.date.to_s) == Date.parse(drive.date.to_s) && self.airport == drive.airport
+  after_create :matching_with_drives
+
+  def matching_with_drives
+    Ride.all.each do |ride|
+      drives = Drive.where(airport: ride.airport)
+      drives.each do |drive|
+        trips = Trip.where(drive: drive, ride: ride).first_or_create
+      end
     end
   end
 
-  def format_time
-    self.time.strftime("%b %e")
-  end
-  
-  def event_date
-    self.event.split(",")[0] if !self.event.nil?
+  def ride_time
+    self.date.strftime("%b #{date.day.ordinalize}")
   end
 
-  def event_location
-    self.event.split(",")[1] if !self.event.nil?
+  def event_time
+    self.event.date.strftime("%b #{date.day.ordinalize}")
   end
 
-  def event_name
-    self.event.split(",")[2] if !self.event.nil?
+  def event_details
+    event = []
+    event.push(event_time, self.event.location, self.event.name)
+    event.reject(&:blank?).join(", ").to_s
   end
 end

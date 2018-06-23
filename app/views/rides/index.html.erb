@@ -1,31 +1,53 @@
-<%= render partial: "/rides/nav" %>
-<div class="container mt-5">
+<!-- <%= render partial: "/shared/sub_nav" %> -->
+
+<div class="container mt-3">
   <% if !@rides.any? %>
-    <h4>You don't have any rides</h4>
+    <h4>You don't have any requested rides</h4>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <%= link_to "Request ride", root_path, class: "btn btn-primary btn-lg " %>
+      </div>
+    </div>
   <% else %>
     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Event</th>
+          <th scope="col">Airport</th>
+          <th scope="col">Spots</th>
+          <th scope="col">Date</th>
+          <th scope="col">Notification</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
       <tbody>
         <% @rides.each do |ride| %>
-        <tr>
-          <td><%= ride.event_date %></td>
-          <td ><%= ride.event_location %></td>
-          <td><%= ride.event_name %></td>
-          <% if !ride.reserved %>
+          <tr>
+            <td><%= ride.event_details%></td>
+            <td ><%= ride.airport %></td>
             <td>
-              <%= link_to 'Reserved', ride_path(ride), class: "btn btn btn-info btn-sm" %>
+              <div class="ml-3"><%= ride.spot %></div>
             </td>
-          <% end %>
-          <td>
-          <td><i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is requested">notifications_active</i></td>
-        </tr>
+            <td><%= ride.ride_time %></td>
+            <td>
+              <% if ride.drives.any? %>
+                <%= link_to available_ride_path(ride) do %>
+                  <div class="ml-4">
+                    <i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is available">notifications_active</i>
+                  </div>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'Edit', edit_ride_path(ride), class: "btn btn btn-info btn-sm" %>
+            </td>
+            <td>
+              <%= link_to 'Delete', ride, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn btn-info btn-sm" %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
 </div>
-
-<script>
-  $(document).ready(function(){
-      $('[data-toggle="tooltip"]').popover();
-  });
-</script>

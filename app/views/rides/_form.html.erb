@@ -1,12 +1,13 @@
-<form role="form" action="/rides" accept-charset="UTF-8" method="post">
+<!-- <form role="form" action="/rides" accept-charset="UTF-8" method="post"> -->
+<%= form_with(action: @ride, local: true, url: url, method: method) do |form| %>
   <form class="needs-validation" novalidate>
   <div class="form-row required">
     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-      <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event]" required>
-        <option selected >Event</option>
-        <% Course.all.each do |course| %>
-          <option value="<%= course.course_details %>">
-            <%= course.course_details %>
+      <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event_id]">
+        <option value="" selected disabled>Event</option>
+        <% Event.all.each do |event| %>
+          <option value="<%= event.id %>">
+            <%= event.event_details  %>
           </option>
         <% end %>
       </select>
@@ -69,6 +70,6 @@
     </div>
     <button class="btn btn-dark mt-1" type="submit">Submit form</button>
   </form>
-</form>
-
+<!-- </form> -->
+<% end %>
 <%= render partial: "/rides/form_validation", :formats => [:js] %>
