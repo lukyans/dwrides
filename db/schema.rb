@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180524040503) do
+ActiveRecord::Schema.define(version: 20180621190941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "courses", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.string "airport"
-    t.date "date"
-    t.bigint "ride_id"
-    t.bigint "drive_id"
-    t.bigint "user_id"
-    t.index ["drive_id"], name: "index_courses_on_drive_id"
-    t.index ["ride_id"], name: "index_courses_on_ride_id"
-    t.index ["user_id"], name: "index_courses_on_user_id"
-  end
 
   create_table "drives", force: :cascade do |t|
     t.string "airport"
@@ -34,7 +21,18 @@ ActiveRecord::Schema.define(version: 20180524040503) do
     t.date "date"
     t.time "time"
     t.bigint "user_id"
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_drives_on_event_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "airport"
+    t.date "date"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "rides", force: :cascade do |t|
@@ -45,9 +43,17 @@ ActiveRecord::Schema.define(version: 20180524040503) do
     t.date "date"
     t.time "time"
     t.bigint "user_id"
-    t.string "event"
     t.boolean "reserved", default: false, null: false
+    t.bigint "event_id"
+    t.index ["event_id"], name: "index_rides_on_event_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "ride_id", null: false
+    t.bigint "drive_id", null: false
+    t.index ["drive_id"], name: "index_trips_on_drive_id"
+    t.index ["ride_id"], name: "index_trips_on_ride_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,9 +77,11 @@ ActiveRecord::Schema.define(version: 20180524040503) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "courses", "drives"
-  add_foreign_key "courses", "rides"
-  add_foreign_key "courses", "users"
+  add_foreign_key "drives", "events"
   add_foreign_key "drives", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "rides", "events"
   add_foreign_key "rides", "users"
+  add_foreign_key "trips", "drives"
+  add_foreign_key "trips", "rides"
 end
