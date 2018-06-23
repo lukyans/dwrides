@@ -2,21 +2,19 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  # resources :home, only: [:index]
   root to: "home#index"
 
-  resources :drives, only: [:index, :create] do
-    collection do
+  resources :drives do
+    member do
       get :requested
+    end
+  end
+
+  resources :rides do
+    member do
       get :available
     end
   end
-  resources :rides, only: [:index, :show, :create] do
-    collection do
-      get :requested
-      get :offered
-    end
-  end
 
-  resources :courses, only: [:index, :create]
+  resources :events
 end
