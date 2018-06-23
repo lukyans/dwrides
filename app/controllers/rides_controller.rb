@@ -1,9 +1,9 @@
 class RidesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!
+  before_action :set_ride, only: [:show, :edit, :update, :destroy, :available]
 
   def index
-    @rides = current_user.rides #if user_signed_in?
+    @rides = current_user.rides
   end
 
   def new
@@ -11,7 +11,9 @@ class RidesController < ApplicationController
   end
 
   def show
-    
+  end
+
+  def edit
   end
 
   def create
@@ -25,18 +27,30 @@ class RidesController < ApplicationController
     end
   end
 
-  def requested
-    @rides = current_user.rides if user_signed_in?
-    @drives = Drive.all
+  def update
+    if @ride.update(ride_params)
+      flash[:notice] = "Ride was successfully updated."
+      redirect_to ride_path(@ride)
+    end
   end
 
-  def offered
+  def destroy
+    @ride.destroy
+    flash[:notice] = "Ride was successfully deleted."
+    redirect_to rides_path
+  end
 
+  def available
+    @available_rides = @ride.drives
   end
 
 private
 
+  def set_ride
+    @ride = Ride.find(params[:id])
+  end
+
   def ride_params
-    params.require(:ride).permit(:event, :airport, :flight_number, :traveling_status, :spot, :date, :time)
+    params.require(:ride).permit(:event_id, :airport, :flight_number, :traveling_status, :spot, :date, :time)
   end
 end
