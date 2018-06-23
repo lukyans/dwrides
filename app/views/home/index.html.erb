@@ -4,7 +4,7 @@
       <div class="p-3 p-md-5">
         <div class="container col-12 form">
           <h2 class="mb-3">Request ride</h2>
-          <%= render partial: "/rides/form"%>
+          <%= render partial: "/rides/form", locals: { url: rides_path, method: :post } %>
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
       <div class="p-1 p-md-5">
         <div class="container col-12 form">
           <h2 class="mb-3">Offer ride</h2>
-          <%= render partial: "/drives/drive_form"%>
+          <%= render partial: "/drives/form", locals: { url: drives_path, method: :post }%>
         </div>
       </div>
     </div>

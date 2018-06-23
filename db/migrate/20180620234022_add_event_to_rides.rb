@@ -1,5 +1,5 @@
 class AddEventToRides < ActiveRecord::Migration[5.1]
   def change
-    add_column :rides, :event, :string
+    add_reference :rides, :event, foreign_key: true
   end
 end
