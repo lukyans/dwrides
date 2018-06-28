@@ -13,15 +13,11 @@ class Ride < ApplicationRecord
 
   def matching_with_drives
     Ride.all.each do |ride|
-      drives = Drive.where(airport: ride.airport)
+      drives = Drive.where(airport: ride.airport, date: ride.date)
       drives.each do |drive|
         trips = Trip.where(drive: drive, ride: ride).first_or_create
       end
     end
-  end
-
-  def ride_time
-    self.date.strftime("%b #{date.day.ordinalize}")
   end
 
   def event_time

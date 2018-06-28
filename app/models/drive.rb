@@ -19,10 +19,6 @@ class Drive < ApplicationRecord
     end
   end
 
-  def drive_time
-    self.date.strftime("%b #{date.day.ordinalize}")
-  end
-
   def event_time
     self.event.date.strftime("%b #{date.day.ordinalize}")
   end

@@ -4,13 +4,14 @@
   <% if !@drives.any? %>
     <h4>You don't have any offered rides</h4>
   <% else %>
-    <table class="table">
+    <table class="table table-hover table-borderless  ">
       <thead>
         <tr>
           <th scope="col">Event</th>
           <th scope="col">Airport</th>
           <th scope="col">Spots</th>
           <th scope="col">Date</th>
+          <th scope="col">Time</th>
           <th scope="col">Notification</th>
           <th scope="col"></th>
           <th scope="col"></th>
@@ -24,12 +25,13 @@
             <td>
               <div class="ml-3"><%= drive.spot %></div>
             </td>
-            <td><%= drive.drive_time %></td>
+            <td><%= display_date(drive) %></td>
+            <td><%= display_time(drive) %></td>
             <td>
               <% if drive.rides.any? %>
                 <%= link_to requested_drive_path(drive) do %>
                   <div class="ml-4">
-                    <i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is requested">notifications_active</i>
+                    <i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is needed">notifications_active</i>
                   </div>
                 <% end %>
               <% end %>
