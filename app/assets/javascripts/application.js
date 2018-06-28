@@ -12,8 +12,12 @@
 //
 
 //= require jquery
-//= require bootstrap
+//= require jquery.turbolinks
+//= require jquery_ujs
 //= require rails-ujs
+//= require bootstrap
+//= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree
+//= require bootstrap/dropdown
 //= require bootstrap-datepicker
+//= require_tree .

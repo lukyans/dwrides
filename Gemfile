@@ -38,6 +38,9 @@ gem 'devise'
 gem 'bootstrap-datepicker-rails'
 gem 'faraday', '~> 0.15.0'
 gem 'cloudinary'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
+gem 'jquery-turbolinks'
 # gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 group :development, :test do
