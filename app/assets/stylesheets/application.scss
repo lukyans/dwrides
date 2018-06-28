@@ -15,6 +15,39 @@
  @import "bootstrap";
  @import "bootstrap-datepicker";
 
+ @media (max-width: 767px) {
+  .bgimg {
+    display: none;
+  }
+  #intro-txt {
+    font-size: 20px;
+    & span {
+      font-size: 20px;
+    }
+  }
+  #intro-lg-break {
+    display: none;
+  }
+}
+
+
+
+.alert-alert {
+   @extend .alert-warning;
+ }
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-success {
+  @extend .alert-success;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
 
  .bg-nav {
      background-color: 	#e10a0a;
@@ -23,7 +56,7 @@
     //  filter: drop-shadow(8px 8px 10px gray);
  }
 
- h2, .nav-item, .container {
+ p, h1, h2, h3, h4 .nav-item, .container {
      font-family: "TTNorms-Light", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
      font-weight: 400;
      font-style: normal;
