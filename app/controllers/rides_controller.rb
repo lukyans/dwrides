@@ -45,6 +45,9 @@ class RidesController < ApplicationController
     @available_rides = @ride.drives
   end
 
+  def requested
+  end
+
 private
 
   def set_ride
