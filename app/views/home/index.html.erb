@@ -1,20 +1,45 @@
-<div class="bg-container container-hover">
-  <div class="container d-flex flex-column flex-md-row justify-content-md-center">
-    <div class="bg-secondary-block w-100" style="height: 600px">
-      <div class="p-3 p-md-5">
-        <div class="container col-12 form">
-          <h2 class="mb-3">Request ride</h2>
-          <%= render partial: "/rides/form", locals: { url: rides_path, method: :post } %>
+<% if !user_signed_in? %>
+  <div class="container col-12">
+    <div class="row">
+      <div class="col-8 mt-5 ml-5">
+        <div class= "container mb-5">
+          <h2 id="intro-txt">
+            Everything is a dream, <br id="intro-lg-break">
+            so <span class="text-danger h1">everything is possible.</span>
+          </h2>
         </div>
+        <div class="bgimg" >
+        <%= image_tag("https://res.cloudinary.com/dbo1mgpii/image/upload/v1530128358/DWBA10045_kassel_r_jb.jpg", :width => "900", :height => "500", :alt => "rss feed", class: "img-fluid") %>
       </div>
-    </div>
-    <div class="bg-primary-block w-100" style="height: 600px">
-      <div class="p-1 p-md-5">
-        <div class="container col-12 form">
-          <h2 class="mb-3">Offer ride</h2>
-          <%= render partial: "/drives/form", locals: { url: drives_path, method: :post }%>
-        </div>
+      </div>
+      <div class="col-sm-9 col-md-6 col-lg-3 bg-light mt-1">
+        <hr style="width: 100%; background-color: #e10a0a; height: 3px; border-color : transparent;", class="mt-1" />
+        <%= render :template => "devise/sessions/new", :locals => { :resource => resource, :resource_name => :user } %>
       </div>
     </div>
   </div>
-</div>
+
+<% else %>
+  <div class="container d-flex flex-md-row justify-content-md-center">
+    <div class="col-sm-9 col-md-7 col-lg-5 mt-3">
+      <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="home" aria-selected="true">Request</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="offer-tab" data-toggle="tab" href="#offer" role="tab" aria-controls="contact" aria-selected="offer">Offer</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active mt-4" id="request" role="tabpanel" aria-labelledby="request-tab">
+          <h2 class="mb-2">Request a ride</h2>
+          <%= render partial: "/rides/form", locals: { url: rides_path, method: :post } %>
+        </div>
+      <div class="tab-pane fade mt-4" id="offer" role="tabpanel" aria-labelledby="offer-tab">
+        <h2 class="mb-2">Offer a ride</h2>
+        <%= render partial: "/drives/form", locals: { url: drives_path, method: :post }%>
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>
