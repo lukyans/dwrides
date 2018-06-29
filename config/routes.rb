@@ -16,5 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :home, only: [:index] do
+    collection do
+      get :about
+    end
+  end
+
   resources :events
 end
