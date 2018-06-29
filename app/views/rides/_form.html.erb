@@ -3,7 +3,8 @@
   <form class="needs-validation" novalidate>
   <div class="form-row required">
     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-      <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event_id]">
+       <label for="customSelectValidation1" class="mb-1">From</label>
+      <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event_id]" required>
         <option value="" selected disabled>Event</option>
         <% Event.all.each do |event| %>
           <option value="<%= event.id %>">
@@ -15,14 +16,14 @@
    </div>
    <div class="form-row required">
      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-       <label for="validationCustom01" class="mb-1">Airport</label>
+       <label for="validationCustom01" class="mb-1">To</label>
        <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
        <div class="invalid-feedback">
          Please provide a valid airport.
        </div>
      </div>
    </div>
-   <div class="form-row">
+   <!-- <div class="form-row">
       <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
         <label for="validationCustom02" class="mb-1">Flight Number</label>
         <input type="text" class="form-control" id="validationCustom02" placeholder="Flight Number" name="ride[flight_number]">
@@ -32,7 +33,7 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="col-md-6 mb-2">
+      <div class="col-md-8 mb-2">
         <div class="custom-control custom-radio custom-control-inline">
           <input type="radio" id="customControlValidation1" class="custom-control-input" name="ride[traveling_status]" value="arriving" required>
           <label class="custom-control-label" for="customControlValidation1">Arriving</label>
@@ -42,9 +43,9 @@
           <label class="custom-control-label" for="customControlValidation2">Leaving</label>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="form-row required">
-      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
+      <div class="col-sm-11 col-md-11 col-lg-11 mb-2 mt-2">
         <select class="custom-select" id="customSelectValidation2" for="customSelectValidation2" name="ride[spot]" required>
           <option selected >Number of spots</option>
           <option value="1" >One</option>
