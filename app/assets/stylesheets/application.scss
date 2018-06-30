@@ -39,14 +39,12 @@
   }
 }
 
-
-
 .alert-alert {
    @extend .alert-warning;
  }
 
 .alert-notice {
-  @extend .alert-info;
+  @extend .alert-success;
 }
 
 .alert-success {
