@@ -1,20 +1,22 @@
-<div class="bg-container container-hover">
-  <div class="container d-flex flex-column flex-md-row justify-content-md-center">
-    <div class="bg-secondary-block w-100" style="height: 600px">
-      <div class="p-3 p-md-5">
-        <div class="container col-12 form">
-          <h2 class="mb-3">Request ride</h2>
-          <%= render partial: "form", locals: { url: rides_path, method: :post } %>
-        </div>
+<div class="container d-flex flex-md-row justify-content-md-center">
+  <div class="col-sm-9 col-md-7 col-lg-5 mt-3">
+    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="request-tab" data-toggle="tab" href="#request" role="tab" aria-controls="home" aria-selected="true">Request</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="offer-tab" data-toggle="tab" href="#offer" role="tab" aria-controls="contact" aria-selected="offer">Offer</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active mt-4" id="request" role="tabpanel" aria-labelledby="request-tab">
+        <h2 class="mb-2">Request a ride</h2>
+        <%= render "form" %>
       </div>
+    <div class="tab-pane fade mt-4" id="offer" role="tabpanel" aria-labelledby="offer-tab">
+      <h2 class="mb-2">Offer a ride</h2>
+      <%= render partial: "drives/form" %>
     </div>
-    <div class="bg-primary-block w-100" style="height: 600px">
-      <div class="p-1 p-md-5">
-        <div class="container col-12 form">
-          <h2 class="mb-3">Offer ride</h2>
-          <%= render partial: "form"%>
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
 </div>
