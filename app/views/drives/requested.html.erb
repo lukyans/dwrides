@@ -19,11 +19,11 @@
                 <i class="material-icons text-muted mb-3">info</i>
               <%end%>
 
-              <% if ride.traveling_status == "arriving" %>
+              <!-- <% if ride.traveling_status == "arriving" %>
                 <i class="material-icons text-muted mb-3">flight_land</i>
               <% else %>
                 <i class="material-icons text-muted mb-3">flight_takeoff</i>
-              <% end %>
+              <% end %> -->
 
               <i class="material-icons text-muted mb-3">group_add</i>
               <i class="material-icons text-muted mb-3">schedule</i>
@@ -34,7 +34,7 @@
               <% if ride.flight_number? %>
                 <div class="mb-3">Flight: <%= ride.flight_number %></div>
               <%end%>
-              <div class="mb-3"><%= ride.traveling_status.capitalize %></div>
+
               <div class="mb-3"><%= ride.spot %></div>
               <div class="mb-3">
                 <%= ride.date.strftime('%A, %b %d, %Y') %>

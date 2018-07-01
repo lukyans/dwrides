@@ -1,6 +1,6 @@
 class Ride < ApplicationRecord
   validates :airport, presence: true
-  validates :traveling_status, presence: true
+  # validates :traveling_status, presence: true
   validates :spot, presence: true
   validates :date, presence: true
 
