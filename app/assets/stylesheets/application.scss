@@ -24,6 +24,12 @@
    margin-bottom: 90px;
  }
 
+ #arrow {
+
+    transform: rotate(90deg);
+
+ }
+
  @media (max-width: 767px) {
   .bgimg {
     display: none;
