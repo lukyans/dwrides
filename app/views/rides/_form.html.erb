@@ -1,9 +1,9 @@
 <!-- <form role="form" action="/rides" accept-charset="UTF-8" method="post"> -->
-<%= form_with(action: @ride, local: true, url: url, method: method) do |form| %>
+<%= form_for Ride.new do |f| %>
   <form class="needs-validation" novalidate>
   <div class="form-row required">
     <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-       <label for="customSelectValidation1" class="mb-1">From</label>
+       <!-- <label for="customSelectValidation1" class="mb-1">From</label> -->
       <select class="custom-select" id="customSelectValidation1" for="customSelectValidation1" name="ride[event_id]" required>
         <option value="" selected disabled>Event</option>
         <% Event.all.each do |event| %>
@@ -13,10 +13,13 @@
         <% end %>
       </select>
     </div>
-   </div>
+  </div>
+   <i class="material-icons font-weight-bold ml-3" id="arrow">
+    compare_arrows
+   </i>
    <div class="form-row required">
      <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
-       <label for="validationCustom01" class="mb-1">To</label>
+       <!-- <label for="validationCustom01" class="mb-1">To</label> -->
        <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="ride[airport]" required>
        <div class="invalid-feedback">
          Please provide a valid airport.

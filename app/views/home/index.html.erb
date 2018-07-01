@@ -31,11 +31,11 @@
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active mt-4" id="request" role="tabpanel" aria-labelledby="request-tab">
           <h2 class="mb-2">Request a ride</h2>
-          <%= render partial: "/rides/form", locals: { url: rides_path, method: :post } %>
+          <%= render "rides/form" %>
         </div>
       <div class="tab-pane fade mt-4" id="offer" role="tabpanel" aria-labelledby="offer-tab">
         <h2 class="mb-2">Offer a ride</h2>
-        <%= render partial: "/drives/form", locals: { url: drives_path, method: :post }%>
+        <%= render partial: "drives/form" %>
       </div>
     </div>
     </div>

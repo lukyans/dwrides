@@ -1,5 +1,5 @@
 <!-- <form role="form" action="/drives" accept-charset="UTF-8" method="post"> -->
-<%= form_with(action: @drive, local: true, url: url, method: method) do |form| %>
+<%= form_for Drive.new do |form| %>
   <form class="needs-validation" novalidate>
     <div class="form-row required">
       <div class="col-sm-11 col-md-11 col-lg-11 mb-2">
@@ -13,9 +13,12 @@
         </select>
       </div>
     </div>
+     <i class="material-icons font-weight-bold ml-3" id="arrow">
+      compare_arrows
+     </i>
     <div class="form-row required">
       <div class="col-sm-11 col-md-11 col-lg-11 mb-3">
-        <label for="validationCustom01" class="mb-1">Pick up/Drop off</label>
+        <!-- <label for="validationCustom01" class="mb-1">Pick up/Drop off</label> -->
         <input type="text" class="form-control" id="validationCustom01" placeholder="Airport" name="drive[airport]" required>
         <div class="invalid-feedback">
           Please provide a valid airport.
