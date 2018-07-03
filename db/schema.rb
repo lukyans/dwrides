@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20180621190941) do
 
   create_table "drives", force: :cascade do |t|
     t.string "airport"
-    t.integer "spot"
+    t.integer "spot", default: 0, null: false
     t.date "date"
     t.time "time"
-    t.bigint "user_id"
-    t.bigint "event_id"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
     t.index ["event_id"], name: "index_drives_on_event_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
   end
@@ -31,20 +31,19 @@ ActiveRecord::Schema.define(version: 20180621190941) do
     t.string "location"
     t.string "airport"
     t.date "date"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "rides", force: :cascade do |t|
     t.string "airport"
     t.integer "flight_number"
-    t.string "traveling_status"
-    t.integer "spot"
+    t.integer "spot", default: 0, null: false
     t.date "date"
     t.time "time"
     t.bigint "user_id"
     t.boolean "reserved", default: false, null: false
-    t.bigint "event_id"
+    t.bigint "event_id", null: false
     t.index ["event_id"], name: "index_rides_on_event_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
@@ -72,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180621190941) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
+    t.boolean "admin", default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
