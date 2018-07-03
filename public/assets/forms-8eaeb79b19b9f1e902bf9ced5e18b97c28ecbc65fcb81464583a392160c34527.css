@@ -1,0 +1,5 @@
+/* line 1, /Users/sergeylukyanenko/dev/dwrides/app/assets/stylesheets/forms.scss */
+.form-row.required label:after {
+  content: "*";
+  color: red;
+}

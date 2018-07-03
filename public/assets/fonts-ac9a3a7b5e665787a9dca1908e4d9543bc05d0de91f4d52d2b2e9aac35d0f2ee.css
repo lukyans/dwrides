@@ -1,0 +1,13 @@
+/* line 1, /Users/sergeylukyanenko/dev/dwrides/app/assets/stylesheets/fonts.scss */
+p, h1, h2, h3, h4 {
+  font-family: "TTNorms-Light", "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* line 7, /Users/sergeylukyanenko/dev/dwrides/app/assets/stylesheets/fonts.scss */
+.container {
+  font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
