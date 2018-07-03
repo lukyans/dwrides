@@ -12,7 +12,7 @@ class Drive < ApplicationRecord
 
   def matching_with_rides
     Drive.all.each do |drive|
-      rides = Ride.where(airport: drive.airport)
+      rides = Ride.where(airport: drive.airport, date: drive.date)
       rides.each do |ride|
         trips = Trip.where(drive: drive, ride: ride).first_or_create
       end
