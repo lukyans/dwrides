@@ -12,8 +12,9 @@ class Ride < ApplicationRecord
   after_create :matching_with_drives
 
   def matching_with_drives
+    avaiable_drives = Drive.all.where(:reserved => false)
     Ride.all.each do |ride|
-      drives = Drive.where(airport: ride.airport, date: ride.date)
+      drives = avaiable_drives.where(airport: ride.airport, date: ride.date)
       drives.each do |drive|
         trips = Trip.where(drive: drive, ride: ride).first_or_create
       end

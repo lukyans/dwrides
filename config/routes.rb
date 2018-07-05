@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   resources :drives do
     member do
       get :requested
+      get :reserve
+      get :cancel
     end
   end
 
   resources :rides do
     member do
       get :available
+      get :reserved
     end
   end
 

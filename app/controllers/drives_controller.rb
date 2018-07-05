@@ -1,10 +1,10 @@
 class DrivesController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
-  before_action :set_drive, only: [:show, :edit, :update, :destroy, :requested]
+  before_action :set_drive, only: [:show, :edit, :update, :destroy, :requested, :reserve, :cancel]
 
   def index
-    @drives = current_user.drives #if user_signed_in?
+    @drives = current_user.drives
   end
 
   def new
@@ -42,7 +42,31 @@ class DrivesController < ApplicationController
   end
 
   def requested
-    @requested_rides = @drive.rides
+    @requested_rides = @drive.rides.available
+  end
+
+  def reserve
+    ride = params[:ride]
+    @drive.reserve!
+    if @drive.reserved?
+      redirect_to available_ride_path(ride)
+      flash[:notice] = "Ride reserved!"
+    else
+      redirect_to available_ride_path(ride)
+      flash[:notice] =  "Sorry could not reserve a ride."
+    end
+  end
+
+  def cancel
+    ride = params[:ride]
+    @drive.cancel!
+    if @drive.canceled?
+      redirect_to available_ride_path(ride)
+      flash[:notice] = "Ride canceled!"
+    else
+      redirect_to available_ride_path(ride)
+      flash[:notice] =  "Sorry could not cancel a ride."
+    end
   end
 
 private

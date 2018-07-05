@@ -3,6 +3,11 @@
 <div class="container mt-5">
   <% if !@drives.any? %>
     <h4>You don't have any offered rides</h4>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <%= link_to "Offer a ride", root_path, class: "btn btn-primary btn-lg " %>
+      </div>
+    </div>
   <% else %>
     <table class="table table-hover table-borderless  ">
       <thead>
