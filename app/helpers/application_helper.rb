@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def display_time(ride)
-    ride.time.strftime("%l:%M%P %Z")
+    ride.time.strftime("%l:%M%P")
   end
 end
