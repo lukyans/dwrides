@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :rides
   has_many :drives
   has_many :events
+  has_many :trips
 end

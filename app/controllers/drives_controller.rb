@@ -42,26 +42,30 @@ class DrivesController < ApplicationController
   end
 
   def requested
-    @requested_rides = @drive.rides.available
+    @requested_rides = @drive.rides
   end
 
   def reserve
-    ride = params[:ride]
-    @drive.reserve!
+    ride_id = params[:ride]
+    ride_spot = params[:ride_spot]
+    trip_ride_spot = params[:trip_ride_spot]
+    @drive.reserve!(ride_id, ride_spot, trip_ride_spot)
     if @drive.reserved?
-      redirect_to available_ride_path(ride)
+      redirect_to available_ride_path(ride_id)
       flash[:notice] = "Ride reserved!"
     else
-      redirect_to available_ride_path(ride)
+      redirect_to available_ride_path(ride_id)
       flash[:notice] =  "Sorry could not reserve a ride."
     end
   end
 
   def cancel
-    ride = params[:ride]
-    @drive.cancel!
+    ride_id = params[:ride]
+    ride_spot = params[:ride_spot]
+    trip_ride_spot = params[:trip_ride_spot]
+    @drive.cancel!(ride_id, ride_spot, trip_ride_spot)
     if @drive.canceled?
-      redirect_to available_ride_path(ride)
+      redirect_to available_ride_path(ride_id)
       flash[:notice] = "Ride canceled!"
     else
       redirect_to available_ride_path(ride)

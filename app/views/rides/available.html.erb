@@ -1,3 +1,4 @@
+
 <% if @available_rides.nil? %>
   <div class="container text-dark h5 mt-5">
     You don't have available rides
@@ -39,13 +40,13 @@
               </div>
             </div>
             <div class="mb-3">
+
               <% if drive.reserved? %>
-                <%= link_to "Cancel", cancel_drive_path(drive, ride: @ride.id), class: "btn btn-danger btn-lg btn-block" %>
+                <%= link_to "Cancel", cancel_drive_path(drive, ride: @ride, :ride_spot => @ride.spot, :trip_ride_spot => @ride.trip_ride_spot), class: "btn btn-danger btn-lg btn-block" %>
               <% else %>
-                <%= link_to "Reserve", reserve_drive_path(drive, ride: @ride.id), class: "btn btn-info btn-lg btn-block" %>
+                <%= link_to "Reserve", reserve_drive_path(drive, ride: @ride, :ride_spot => @ride.spot, :trip_ride_spot => @ride.trip_ride_spot), class: "btn btn-info btn-lg btn-block" %>
               <% end %>
             </div>
-          </div>
         </div>
       <% end %>
     </div>

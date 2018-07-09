@@ -42,10 +42,7 @@ class RidesController < ApplicationController
   end
 
   def available
-    @available_rides = @ride.drives
-  end
-
-  def requested
+     @available_rides = @ride.available_rides
   end
 
 private
