@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621182625) do
+ActiveRecord::Schema.define(version: 20180708195724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180621182625) do
     t.time "time"
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
+    t.boolean "reserved", default: false, null: false
     t.index ["event_id"], name: "index_drives_on_event_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
   end
@@ -46,6 +47,18 @@ ActiveRecord::Schema.define(version: 20180621182625) do
     t.bigint "event_id", null: false
     t.index ["event_id"], name: "index_rides_on_event_id"
     t.index ["user_id"], name: "index_rides_on_user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.bigint "ride_id", null: false
+    t.bigint "drive_id", null: false
+    t.boolean "reserved", default: false, null: false
+    t.bigint "user_id"
+    t.integer "ride_spot", default: 0, null: false
+    t.integer "drive_spot", default: 0, null: false
+    t.index ["drive_id"], name: "index_trips_on_drive_id"
+    t.index ["ride_id"], name: "index_trips_on_ride_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,4 +87,7 @@ ActiveRecord::Schema.define(version: 20180621182625) do
   add_foreign_key "events", "users"
   add_foreign_key "rides", "events"
   add_foreign_key "rides", "users"
+  add_foreign_key "trips", "drives"
+  add_foreign_key "trips", "rides"
+  add_foreign_key "trips", "users"
 end
