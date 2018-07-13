@@ -23,9 +23,9 @@
     </ul>
 
     <% if !user_signed_in? %>
-      <li class="nav-item nav-link align-right mr-1">
+      <!-- <li class="nav-item nav-link align-right mr-1">
         <%= link_to "Rides", about_home_index_path, class: "text-secondary", style: "text-decoration: none" %>
-      </li>
+      </li> -->
       <a class="btn btn-danger btn-sm text-white nav-button mr-1" href="/users/sign_up" role="button" aria-pressed="true">Sign Up</a>
       <li class="nav-item nav-link align-right mr-1">
         <%= link_to "Help", rides_path, class: "text-secondary", style: "text-decoration: none" %>
@@ -44,13 +44,13 @@
           <%= link_to current_user.first_name, rides_path, class: "text-secondary user-name", style: "text-decoration: none" %>
         </li>
         <div class="dropdown-menu dropdown-menu-right mr-3">
-          <button class="dropdown-item font-weight-light" type="button">Profile</button>
+          <!-- <button class="dropdown-item font-weight-light" type="button">Profile</button>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item font-weight-light" type="button">
             <%= link_to "Trips", class: "text-dark", style: "text-decoration: none" %>
             </button>
           <button class="dropdown-item font-weight-light" type="button">Settings</button>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div> -->
           <button class="dropdown-item font-weight-light" type="button">
             <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "text-dark", style: "text-decoration: none" %>
           </button>
