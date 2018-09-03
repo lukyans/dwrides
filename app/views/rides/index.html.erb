@@ -23,7 +23,7 @@
       <tbody>
         <% @rides.each do |ride| %>
           <tr>
-            <td><%= ride.event_details%></td>
+            <td><%= ride.event.event_details%></td>
             <td ><%= ride.airport %></td>
             <td>
               <div class="ml-3"><%= ride.spot %></div>

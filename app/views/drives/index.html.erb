@@ -25,7 +25,7 @@
       <tbody>
         <% @drives.each do |drive| %>
           <tr>
-            <td><%= drive.event_details%></td>
+            <td><%= drive.event.event_details%></td>
             <td ><%= drive.airport %></td>
             <td>
               <div class="ml-3"><%= drive.spot %></div>
