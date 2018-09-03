@@ -31,7 +31,7 @@
             <td><%= display_date(ride) %></td>
             <td><%= display_time(ride) %></td>
             <td>
-              <% if !ride.available!.nil? && ride.reserved!.empty? %>  
+              <% if !ride.available!.nil? && ride.reserved!.empty? %>
                 <%= link_to available_ride_path(ride) do %>
                   <div class="ml-4">
                     <i class="material-icons text-danger mb-0" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" data-content="Ride is available">notifications_active</i>

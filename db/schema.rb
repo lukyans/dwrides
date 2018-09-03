@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20180708195724) do
     t.integer "spot", default: 0, null: false
     t.date "date"
     t.time "time"
+    t.boolean "reserved", default: false
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
-    t.boolean "reserved", default: false, null: false
     t.index ["event_id"], name: "index_drives_on_event_id"
     t.index ["user_id"], name: "index_drives_on_user_id"
   end

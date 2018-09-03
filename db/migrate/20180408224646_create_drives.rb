@@ -5,6 +5,7 @@ class CreateDrives < ActiveRecord::Migration[5.1]
       t.integer :spot, null: false, default: 0
       t.date :date
       t.time :time
+      t.boolean :reserved, default: false
     end
   end
 end
